@@ -4,3 +4,6 @@ module.exports = {
   },
   plugins: [],
 };
+
+// PRIMARY #0b2c3d
+// SECONDARY #b39359
