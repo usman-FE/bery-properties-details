@@ -1079,6 +1079,18 @@
               <!-- MAIN SHOWCASE -->
               <div
                 class="xl:flex xl:flex-nowrap gap-y-[30px] gap-x-[15px] xl:gap-x-[0px] mb-[30px] items-center"
+                x-data="
+                {
+                  isShowCaseOpen: false,
+                  currentShowCase: '1',
+                  showBodyOverflow(){
+                    document.querySelector('body').style.overflow = 'visible'
+                  },
+                  hideBodyOverflow(){
+                    document.querySelector('body').style.overflow = 'hidden'
+                  }
+                }
+                "
               >
                 <!-- IMAGES SHOWCASE -->
                 <div
@@ -1086,7 +1098,14 @@
                 >
                   <!-- SHOWCASE IMAGE -->
                   <div class="col-span-7">
-                    <a href="#">
+                    <a
+                      href="#"
+                      @click.prevent="
+                        isShowCaseOpen = true;
+                        currentShowCase = 1;
+                        hideBodyOverflow();
+                      "
+                    >
                       <img
                         src="images/showcase-1.webp"
                         alt="Showcase 1"
@@ -1096,7 +1115,14 @@
                   </div>
                   <!-- SHOWCASE IMAGE -->
                   <div class="col-span-5">
-                    <a href="#">
+                    <a
+                      href="#"
+                      @click.prevent="
+                        isShowCaseOpen = true;
+                        currentShowCase = 2;
+                        hideBodyOverflow();
+                      "
+                    >
                       <img
                         src="images/showcase-2.webp"
                         alt="Showcase 2"
@@ -1106,7 +1132,14 @@
                   </div>
                   <!-- SHOWCASE IMAGE -->
                   <div class="col-span-5">
-                    <a href="#">
+                    <a
+                      href="#"
+                      @click.prevent="
+                        isShowCaseOpen = true;
+                        currentShowCase = 3;
+                        hideBodyOverflow();
+                      "
+                    >
                       <img
                         src="images/showcase-3.webp"
                         alt="Showcase 3"
@@ -1116,7 +1149,14 @@
                   </div>
                   <!-- SHOWCASE IMAGE -->
                   <div class="col-span-7">
-                    <a href="#">
+                    <a
+                      href="#"
+                      @click.prevent="
+                        isShowCaseOpen = true;
+                        currentShowCase = 4;
+                        hideBodyOverflow();
+                      "
+                    >
                       <img
                         src="images/showcase-4.webp"
                         alt="Showcase 4"
@@ -1137,6 +1177,46 @@
                   and when nothing prev ents our being able to do what we like
                   best, every pleasure is to be welcomed and every pain
                 </p>
+                <!-- SHOWCASE OVERLAY BOX -->
+                <div
+                  class="fixed inset-0 bg-black/70 w-full h-full z-50"
+                  x-show="isShowCaseOpen"
+                >
+                  <div>
+                    <button
+                      type="button"
+                      class="text-white"
+                      @click="
+                        isShowCaseOpen = false
+                        showBodyOverflow()
+                      "
+                    >
+                      X
+                    </button>
+                    <div>
+                      <img
+                        src="images/showcase-1.webp"
+                        alt="Showcase 1"
+                        x-show="currentShowCase === 1"
+                      />
+                      <img
+                        src="images/showcase-2.webp"
+                        alt="Showcase 2"
+                        x-show="currentShowCase === 2"
+                      />
+                      <img
+                        src="images/showcase-3.webp"
+                        alt="Showcase 3"
+                        x-show="currentShowCase === 3"
+                      />
+                      <img
+                        src="images/showcase-4.webp"
+                        alt="Showcase 4"
+                        x-show="currentShowCase === 4"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <p>
                 Huge number of propreties availabe here for buy, sell and Rent.
