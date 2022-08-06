@@ -3505,7 +3505,135 @@
                       </div>
                     </div>
                     <!-- FEATURED PROPERTY CAROUSEL NAVIGATION BUTTONS -->
-                    <div class="flex justify-center items-center"></div>
+                    <div class="flex flex-wrap items-center justify-center">
+                      <!-- LEFT BUTTON -->
+                      <button
+                        type="button"
+                        @click="
+                          clearInterval(timerInt);
+                          sliderIntervel();
+                          moveSlideRight();
+                        "
+                        class="w-[26px] h-[26px] rounded-full bg-[#0b2c3d] flex items-center justify-center text-white hover:bg-[#b39359] static mx-[5px] mt-[0px]"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                      <!-- RIGHT BUTTON -->
+                      <button
+                        type="button"
+                        @click="
+                          clearInterval(timerInt);
+                          sliderIntervel();
+                          moveSlideLeft();
+                        "
+                        class="w-[26px] h-[26px] rounded-full bg-[#0b2c3d] flex items-center justify-center text-white hover:bg-[#b39359] static mx-[5px] mt-[0px]"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- OUR AGENTS BOX -->
+                <div class="mb-[60px] w-[349px]">
+                  <h3
+                    class="text-[#0b2c3d] leading-none text-[24px] font-['Lora'] underline mb-[30px] font-medium"
+                  >
+                    Our Agents<span class="text-[#b39359]">.</span>
+                  </h3>
+
+                  <div
+                    class="grid sm:grid-cols-2 lg:grid-cols-2 gap-x-[20px] mb-[-20px]"
+                  >
+                    <!-- AGENT -->
+                    <div class="text-center group mb-[30px]">
+                      <div class="relative z-[1] rounded-[6px_6px_0px_0px]">
+                        <a
+                          href="#"
+                          class="block relative before:absolute before:content-[''] before:inset-x-0 before:bottom-0 before:bg-[#016450] before:w-full before:h-[calc(100%_-_30px)] before:z-[-1] before:rounded-[6px_6px_0px_0px]"
+                        >
+                          <img
+                            src="images/person3.webp"
+                            class="w-full object-contain block mx-auto"
+                            loading="lazy"
+                            width="130"
+                            height="154"
+                            alt="Albert S. Smith"
+                          />
+                        </a>
+                      </div>
+
+                      <div
+                        class="bg-[#FFFDFC] drop-shadow-[0px_2px_15px_rgba(0,0,0,0.1)] rounded-[0px_0px_6px_6px] px-[10px] pt-[5px] pb-[15px] border-b-[6px] border-[#0b2c3d] transition-all duration-700 group-hover:border-[#b39359]"
+                      >
+                        <h3>
+                          <a
+                            href="#"
+                            class="font-['Lora'] text-[14px] text-[#0b2c3d] hover:text-[#b39359]"
+                            >Albert S. Smith</a
+                          >
+                        </h3>
+                        <p
+                          class="font-light text-[12px] leading-none capitalize mt-[5px]"
+                        >
+                          Real Estate Agent
+                        </p>
+                      </div>
+                    </div>
+                    <!-- AGENT -->
+                    <div class="text-center group mb-[30px]">
+                      <div class="relative z-[1] rounded-[6px_6px_0px_0px]">
+                        <a
+                          href="#"
+                          class="block relative before:absolute before:content-[''] before:inset-x-0 before:bottom-0 before:bg-[#016450] before:w-full before:h-[calc(100%_-_30px)] before:z-[-1] before:rounded-[6px_6px_0px_0px]"
+                        >
+                          <img
+                            src="images/person4.webp"
+                            class="w-full object-contain block mx-auto"
+                            loading="lazy"
+                            width="130"
+                            height="154"
+                            alt="Amelia Margaret"
+                          />
+                        </a>
+                      </div>
+
+                      <div
+                        class="bg-[#FFFDFC] drop-shadow-[0px_2px_15px_rgba(0,0,0,0.1)] rounded-[0px_0px_6px_6px] px-[10px] pt-[5px] pb-[15px] border-b-[6px] border-[#0b2c3d] transition-all duration-700 group-hover:border-[#b39359]"
+                      >
+                        <h3>
+                          <a
+                            href="#"
+                            class="font-['Lora'] text-[14px] text-[#0b2c3d] hover:text-[#b39359]"
+                            >Amelia Margaret</a
+                          >
+                        </h3>
+                        <p
+                          class="font-light text-[12px] leading-none capitalize mt-[5px]"
+                        >
+                          Real Estate Broker
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </aside>
