@@ -1082,7 +1082,15 @@
                 x-data="
                 {
                   isShowCaseOpen: false,
-                  currentShowCase: '1',
+                  currentShowCase: 1,
+                  showcaseNext(){
+                    if(this.currentShowCase === 4) return this.currentShowCase = 1;
+                    this.currentShowCase++;
+                  },
+                  showcasePrev(){
+                    if(this.currentShowCase === 1) return this.currentShowCase = 4;
+                    this.currentShowCase--;
+                  },
                   showBodyOverflow(){
                     document.querySelector('body').style.overflow = 'visible'
                   },
@@ -1179,13 +1187,41 @@
                 </p>
                 <!-- SHOWCASE OVERLAY BOX -->
                 <div
-                  class="fixed inset-0 bg-black/70 w-full h-full z-50"
+                  class="fixed inset-0 bg-black/70 w-full h-full z-50 px-2 text-center flex items-center justify-center cursor-zoom-out"
                   x-show="isShowCaseOpen"
+                  @keyup.escape.window="
+                    isShowCaseOpen = false;
+                    showBodyOverflow();
+                  "
+                  @click.self="
+                    isShowCaseOpen = false;
+                    showBodyOverflow();
+                  "
                 >
-                  <div>
+                  <!-- BUTTON LEFT -->
+                  <button
+                    type="button"
+                    class="h-7 w-7 outline-none border-none text-white/75"
+                    @click="showcasePrev()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-7 w-7"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  <!-- IMAGE SHOWCASE -->
+                  <div class="relative mx-auto max-w-full flex flex-col">
                     <button
                       type="button"
-                      class="text-white"
+                      class="text-white flex justify-end"
                       @click="
                         isShowCaseOpen = false
                         showBodyOverflow()
@@ -1193,29 +1229,62 @@
                     >
                       X
                     </button>
-                    <div>
+                    <div class="cursor-pointer">
                       <img
-                        src="images/showcase-1.webp"
+                        src="images/showcase-1-big.webp"
                         alt="Showcase 1"
                         x-show="currentShowCase === 1"
+                        class="h-auto w-auto block shadow-md"
+                        @click="showcaseNext()"
                       />
                       <img
-                        src="images/showcase-2.webp"
+                        src="images/showcase-2-big.webp"
                         alt="Showcase 2"
                         x-show="currentShowCase === 2"
+                        class="h-auto w-auto block shadow-lg"
+                        @click="showcaseNext()"
                       />
                       <img
                         src="images/showcase-3.webp"
                         alt="Showcase 3"
                         x-show="currentShowCase === 3"
+                        class="h-auto w-auto block shadow-lg"
+                        @click="showcaseNext()"
                       />
                       <img
-                        src="images/showcase-4.webp"
+                        src="images/showcase-4-big.webp"
                         alt="Showcase 4"
                         x-show="currentShowCase === 4"
+                        class="h-auto w-auto block shadow-lg"
+                        @click="showcaseNext()"
                       />
                     </div>
+                    <!-- COUNTER -->
+                    <div class="flex justify-end text-sm">
+                      <p class="text-white">
+                        <span x-text="currentShowCase"></span> of 4
+                      </p>
+                    </div>
                   </div>
+                  <!-- BUTTON RIGHT -->
+                  <button
+                    type="button"
+                    class="h-7 w-7 outline-none border-none text-white/75"
+                    @click="showcaseNext()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-7 w-7"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
               <p>
