@@ -2512,7 +2512,7 @@
         topBar: document.querySelector('#topBar'),
         showBackToTop: false
       }">
-    <a class="w-12 h-12 rounded-full bg-[#0B2C3D] text-white fixed right-5 bottom-16 flex flex-wrap items-center justify-center transition-all duration-300 z-30"
+    <a class="w-12 h-12 rounded-full bg-[#0B2C3D] text-white fixed right-5 bottom-16 flex flex-wrap items-center justify-center transition-all duration-300 z-[9999]"
       href="#topBar" @scroll.window="
           newValue = window.pageYOffset;
           if (oldValue > newValue && window.pageYOffset > (topBar.offsetHeight + header.offsetHeight)) {
